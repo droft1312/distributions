@@ -8,7 +8,7 @@ namespace Distributions
 {
     static class MyFunctions {
 
-        public static double CalculatePoisson (double lambda, double x) {
+        public static double CalculatePoisson(double lambda, double x) {
             double enumerator = Math.Pow (lambda, x) * Math.Pow (Math.E, -lambda);
             double denominator = MathNet.Numerics.SpecialFunctions.Factorial ((int)x);
             return enumerator / denominator;
