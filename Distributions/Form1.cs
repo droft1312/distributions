@@ -79,6 +79,9 @@ namespace Distributions
                 Position = AxisPosition.Bottom,
                 Key = "CakeAxis"
             };
+            
+            var minmax = GetMinAndMaxOccurrences (sorted_rates_probability);
+
             List<double> xs = new List<double> ();
             for (int i = 0; i < sorted_rates_probability.Count; i++) {
                 xs.Add (sorted_rates_probability.Keys.ElementAt (i));
@@ -87,11 +90,10 @@ namespace Distributions
             FunctionSeries function = new FunctionSeries ();
             List<DataPoint> dataPoints = new List<DataPoint> ();
 
-            var minmax = GetMinAndMaxOccurrences (sorted_rates_probability);
 
             for (int i = minmax.min; i <= minmax.max; i++) {
                 var k = CalculatePoisson (lambda, i);
-                dataPoints.Add (new DataPoint (i, k));
+                dataPoints.Add (new DataPoint (i - minmax.min, k));
             }
 
             function.Points.AddRange (dataPoints);
