@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using static Distributions.MyFunctions;
+
 namespace Distributions
 {
     public partial class Form1 : Form
@@ -42,6 +44,9 @@ namespace Distributions
                 sequences[i] = sequence;
             }
 
+            // get unique rates and their corresponding number of appearences
+
+            var sorted_rates = ReturnSortedList (GetUniqueRatesAndTheirCounters (GetSuccessRatesFromSequences (sequences)));
         }
     }
 }
