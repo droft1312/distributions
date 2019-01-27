@@ -15,5 +15,13 @@ namespace Distributions
         public Form1 () {
             InitializeComponent ();
         }
+
+        private void goBernoulliButton_Click (object sender, EventArgs e) {
+            int trials, sequences, lambda;
+
+            trials = int.Parse (numberOfExperimentsTextBox.Text);
+            sequences = int.Parse (numberOfSequencesTextBox.Text);
+            lambda = int.Parse (lambdaTextBox.Text);
+        }
     }
 }
