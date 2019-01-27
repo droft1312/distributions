@@ -32,6 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.goBernoulliButton = new System.Windows.Forms.Button();
+            this.plotView = new OxyPlot.WindowsForms.PlotView();
             this.SuspendLayout();
             // 
             // numberOfExperimentsTextBox
@@ -92,11 +93,24 @@
             this.goBernoulliButton.UseVisualStyleBackColor = true;
             this.goBernoulliButton.Click += new System.EventHandler(this.goBernoulliButton_Click);
             // 
+            // plotView
+            // 
+            this.plotView.Location = new System.Drawing.Point(265, 12);
+            this.plotView.Name = "plotView";
+            this.plotView.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.plotView.Size = new System.Drawing.Size(523, 426);
+            this.plotView.TabIndex = 7;
+            this.plotView.Text = "plotView1";
+            this.plotView.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.plotView.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.plotView.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.plotView);
             this.Controls.Add(this.goBernoulliButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -120,6 +134,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button goBernoulliButton;
+        private OxyPlot.WindowsForms.PlotView plotView;
     }
 }
 

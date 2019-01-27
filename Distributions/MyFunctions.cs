@@ -8,6 +8,12 @@ namespace Distributions
 {
     static class MyFunctions {
 
+        public static double CalculatePoisson (double lambda, double x) {
+            double enumerator = Math.Pow (lambda, x) * Math.Pow (Math.E, -lambda);
+            double denominator = MathNet.Numerics.SpecialFunctions.Factorial ((int)x);
+            return enumerator / denominator;
+        }
+
         public static int[] GetSuccessRatesFromSequences (Sequence[] sequences) {
             int[] rates = new int[sequences.Length];
 

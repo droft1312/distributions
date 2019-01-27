@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using OxyPlot;
+using OxyPlot.Axes;
+using OxyPlot.Series;
 using static Distributions.MyFunctions;
 
 namespace Distributions
@@ -15,11 +18,20 @@ namespace Distributions
     public partial class Form1 : Form
     {
         Random random;
+        OxyPlot.PlotModel plotModel;
 
         public Form1 () {
             InitializeComponent ();
 
             random = new Random ();
+
+            var model = new PlotModel { Title = "ColumnSeries" };
+            // A ColumnSeries requires a CategoryAxis on the x-axis.
+            model.Axes.Add (new CategoryAxis ());
+            var series = new ColumnSeries ();
+            model.Series.Add (series);
+            series.Items.Add (new ColumnItem (100));
+            plotView.Model = model;
         }
 
         private void goBernoulliButton_Click (object sender, EventArgs e) {
@@ -49,7 +61,40 @@ namespace Distributions
             var sorted_rates_probability = ReturnSortedList (GetUniqueRatesAndTheirCounters (GetSuccessRatesFromSequences (sequences)));
             CalculateProbabilityOfEachRateBasedOnSampleData (ref sorted_rates_probability, nrOfSequences);
 
+            // display
+            #region Displaying it in the graph
 
+            plotModel = new PlotModel () { Title = "Chart" };
+            ColumnSeries columnSeries = new ColumnSeries ();
+            List<ColumnItem> columnItems = new List<ColumnItem> ();
+
+            for (int i = 0; i < sorted_rates_probability.Count; i++) {
+                var columnItem = new ColumnItem (sorted_rates_probability[sorted_rates_probability.Keys.ElementAt (i)]);
+                columnItems.Add (columnItem);
+            }
+            columnSeries.Items.AddRange (columnItems);
+            plotModel.Series.Add (columnSeries);
+            var categoryAxis = new CategoryAxis {
+                Position = AxisPosition.Bottom,
+                Key = "CakeAxis"
+            };
+            List<double> xs = new List<double> ();
+            for (int i = 0; i < sorted_rates_probability.Count; i++) {
+                xs.Add (sorted_rates_probability.Keys.ElementAt (i));
+            }
+            FunctionSeries function = new FunctionSeries ();
+            List<DataPoint> dataPoints = new List<DataPoint> ();
+            for (int i = 0; i < nrOfTrials; i++) {
+                var k = CalculatePoisson (lambda, i);
+                dataPoints.Add (new DataPoint (i, k));
+            }
+            function.Points.AddRange (dataPoints);
+            plotModel.Series.Add (function);
+            categoryAxis.ItemsSource = xs;
+            plotModel.Axes.Add (categoryAxis);
+            plotView.Model = plotModel;
+
+            #endregion
         }
     }
 }
