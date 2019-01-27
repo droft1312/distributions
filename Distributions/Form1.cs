@@ -46,7 +46,10 @@ namespace Distributions
 
             // get unique rates and their corresponding number of appearences
 
-            var sorted_rates = ReturnSortedList (GetUniqueRatesAndTheirCounters (GetSuccessRatesFromSequences (sequences)));
+            var sorted_rates_probability = ReturnSortedList (GetUniqueRatesAndTheirCounters (GetSuccessRatesFromSequences (sequences)));
+            CalculateProbabilityOfEachRateBasedOnSampleData (ref sorted_rates_probability, nrOfSequences);
+
+
         }
     }
 }

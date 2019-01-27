@@ -20,6 +20,11 @@ namespace Distributions
             return rates.GroupBy (x => x).ToDictionary (x => x.Key, x => x.Count ());
         }
 
+        public static void CalculateProbabilityOfEachRateBasedOnSampleData (ref SortedList<double, double> arr, double nrSequences) {
+            for (int i = 0; i < arr.Count; i++) {
+                arr[arr.Keys.ElementAt (i)] /= nrSequences;
+            }
+        }
 
         public static SortedList<double, double> ReturnSortedList (Dictionary<int, int> dictionary) {
             SortedList<double, double> list = new SortedList<double, double> ();
