@@ -12,16 +12,36 @@ namespace Distributions
 {
     public partial class Form1 : Form
     {
+        Random random;
+
         public Form1 () {
             InitializeComponent ();
+
+            random = new Random ();
         }
 
         private void goBernoulliButton_Click (object sender, EventArgs e) {
-            int trials, sequences, lambda;
+            int nrOfTrials, nrOfSequences, lambda;
 
-            trials = int.Parse (numberOfExperimentsTextBox.Text);
-            sequences = int.Parse (numberOfSequencesTextBox.Text);
+            nrOfTrials = int.Parse (numberOfExperimentsTextBox.Text);
+            nrOfSequences = int.Parse (numberOfSequencesTextBox.Text);
             lambda = int.Parse (lambdaTextBox.Text);
+
+            // create sequences
+
+            Sequence[] sequences = new Sequence[nrOfSequences];
+            
+            for (int i = 0; i < nrOfSequences; i++) {
+                Sequence sequence = new Sequence ();
+
+                for (int j = 0; j < nrOfTrials; j++) {
+                    var random_number = random.Next (0, nrOfTrials);
+                    if (random_number < lambda) sequence.Success_Rate++;    
+                }
+
+                sequences[i] = sequence;
+            }
+
         }
     }
 }
