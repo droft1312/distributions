@@ -97,6 +97,9 @@ namespace Distributions
             }
 
             function.Points.AddRange (dataPoints);
+
+           
+
             plotModel.Series.Add (function);
             categoryAxis.ItemsSource = xs;
             plotModel.Axes.Add (categoryAxis);
@@ -122,6 +125,69 @@ namespace Distributions
             result.max = (int)max;
 
             return result;
+        }
+
+        private void exponentialButton_Click (object sender, EventArgs e) {
+
+            int lambda = int.Parse (lambdaTextBox.Text);
+            int interval = int.Parse (intervalTextBox.Text);
+            int runs = int.Parse (runsTextBox.Text);
+
+            List<int> distances = new List<int> ();
+            int distance = 0;
+
+            for (int i = 0; i < runs; i++) {
+                var random_number = random.Next (0, interval);
+                if (random_number >= lambda) distance++;
+                else {
+                    distances.Add (distance);
+                    distance = 0;
+                }
+            }
+
+            var uniqueDistances = ReturnSortedList(GetUniqueRatesAndTheirCounters (distances.ToArray ()));
+            CalculateProbabilityOfEachRateBasedOnSampleData (ref uniqueDistances, distances.Count);
+
+
+            plotModel = new PlotModel () { Title = "Chart" };
+
+
+            ColumnSeries columnSeries = new ColumnSeries ();
+            List<ColumnItem> columnItems = new List<ColumnItem> ();
+
+            for (int i = 0; i < uniqueDistances.Count; i++) {
+                var columnItem = new ColumnItem (uniqueDistances[uniqueDistances.Keys.ElementAt (i)]);
+                columnItems.Add (columnItem);
+            }
+            columnSeries.Items.AddRange (columnItems);
+            plotModel.Series.Add (columnSeries);
+
+            var categoryAxis = new CategoryAxis {
+                Position = AxisPosition.Bottom,
+                Key = "CakeAxis"
+            };
+
+            List<double> xs = new List<double> ();
+            for (int i = 0; i < uniqueDistances.Count; i++) {
+                xs.Add (uniqueDistances.Keys.ElementAt (i));
+            }
+
+
+            FunctionSeries densityFunction = new FunctionSeries ();
+            List<DataPoint> points = new List<DataPoint> ();
+
+            var minmax = GetMinAndMaxOccurrences (uniqueDistances);
+
+            for (double i = minmax.min; i < minmax.max; i += 0.1) {
+                var res = CalculateProbabilityDensityFunction ( (double)lambda / (double)interval, i);
+                points.Add (new DataPoint (i, res));
+            }
+
+            densityFunction.Points.AddRange (points);
+            plotModel.Series.Add (densityFunction);
+            categoryAxis.ItemsSource = xs;
+            plotModel.Axes.Add (categoryAxis);
+            plotView.Model = plotModel;
         }
     }
 }

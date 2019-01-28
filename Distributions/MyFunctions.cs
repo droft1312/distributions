@@ -35,6 +35,10 @@ namespace Distributions
             return Math.Sqrt (CalculateVariance (sequences));
         }
 
+        public static double CalculateProbabilityDensityFunction(double lambda, double x) {
+            return lambda * Math.Pow (Math.E, (-lambda * x));
+        }
+
         public static double CalculatePoisson(double lambda, double x) {
             double enumerator = Math.Pow (lambda, x) * Math.Pow (Math.E, -lambda);
             double denominator = MathNet.Numerics.SpecialFunctions.Factorial ((int)x);

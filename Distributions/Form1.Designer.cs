@@ -36,6 +36,11 @@
             this.meanLabel = new System.Windows.Forms.Label();
             this.varianceLabel = new System.Windows.Forms.Label();
             this.standardDeviationLabel = new System.Windows.Forms.Label();
+            this.intervalTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.exponentialButton = new System.Windows.Forms.Button();
+            this.runsTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // numberOfExperimentsTextBox
@@ -135,11 +140,58 @@
             this.standardDeviationLabel.TabIndex = 10;
             this.standardDeviationLabel.Text = "Standard Deviation:";
             // 
+            // intervalTextBox
+            // 
+            this.intervalTextBox.Location = new System.Drawing.Point(13, 217);
+            this.intervalTextBox.Name = "intervalTextBox";
+            this.intervalTextBox.Size = new System.Drawing.Size(100, 20);
+            this.intervalTextBox.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(119, 220);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Interval";
+            // 
+            // exponentialButton
+            // 
+            this.exponentialButton.Location = new System.Drawing.Point(13, 273);
+            this.exponentialButton.Name = "exponentialButton";
+            this.exponentialButton.Size = new System.Drawing.Size(75, 23);
+            this.exponentialButton.TabIndex = 13;
+            this.exponentialButton.Text = "Go 2!";
+            this.exponentialButton.UseVisualStyleBackColor = true;
+            this.exponentialButton.Click += new System.EventHandler(this.exponentialButton_Click);
+            // 
+            // runsTextBox
+            // 
+            this.runsTextBox.Location = new System.Drawing.Point(13, 244);
+            this.runsTextBox.Name = "runsTextBox";
+            this.runsTextBox.Size = new System.Drawing.Size(100, 20);
+            this.runsTextBox.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(119, 247);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Runs";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.runsTextBox);
+            this.Controls.Add(this.exponentialButton);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.intervalTextBox);
             this.Controls.Add(this.standardDeviationLabel);
             this.Controls.Add(this.varianceLabel);
             this.Controls.Add(this.meanLabel);
@@ -171,6 +223,11 @@
         private System.Windows.Forms.Label meanLabel;
         private System.Windows.Forms.Label varianceLabel;
         private System.Windows.Forms.Label standardDeviationLabel;
+        private System.Windows.Forms.TextBox intervalTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button exponentialButton;
+        private System.Windows.Forms.TextBox runsTextBox;
+        private System.Windows.Forms.Label label5;
     }
 }
 
