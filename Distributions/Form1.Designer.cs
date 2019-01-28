@@ -33,6 +33,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.goBernoulliButton = new System.Windows.Forms.Button();
             this.plotView = new OxyPlot.WindowsForms.PlotView();
+            this.meanLabel = new System.Windows.Forms.Label();
+            this.varianceLabel = new System.Windows.Forms.Label();
+            this.standardDeviationLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // numberOfExperimentsTextBox
@@ -105,11 +108,41 @@
             this.plotView.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
             this.plotView.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
             // 
+            // meanLabel
+            // 
+            this.meanLabel.AutoSize = true;
+            this.meanLabel.Location = new System.Drawing.Point(9, 137);
+            this.meanLabel.Name = "meanLabel";
+            this.meanLabel.Size = new System.Drawing.Size(37, 13);
+            this.meanLabel.TabIndex = 8;
+            this.meanLabel.Text = "Mean:";
+            // 
+            // varianceLabel
+            // 
+            this.varianceLabel.AutoSize = true;
+            this.varianceLabel.Location = new System.Drawing.Point(9, 164);
+            this.varianceLabel.Name = "varianceLabel";
+            this.varianceLabel.Size = new System.Drawing.Size(52, 13);
+            this.varianceLabel.TabIndex = 9;
+            this.varianceLabel.Text = "Variance:";
+            // 
+            // standardDeviationLabel
+            // 
+            this.standardDeviationLabel.AutoSize = true;
+            this.standardDeviationLabel.Location = new System.Drawing.Point(9, 189);
+            this.standardDeviationLabel.Name = "standardDeviationLabel";
+            this.standardDeviationLabel.Size = new System.Drawing.Size(101, 13);
+            this.standardDeviationLabel.TabIndex = 10;
+            this.standardDeviationLabel.Text = "Standard Deviation:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.standardDeviationLabel);
+            this.Controls.Add(this.varianceLabel);
+            this.Controls.Add(this.meanLabel);
             this.Controls.Add(this.plotView);
             this.Controls.Add(this.goBernoulliButton);
             this.Controls.Add(this.label3);
@@ -135,6 +168,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button goBernoulliButton;
         private OxyPlot.WindowsForms.PlotView plotView;
+        private System.Windows.Forms.Label meanLabel;
+        private System.Windows.Forms.Label varianceLabel;
+        private System.Windows.Forms.Label standardDeviationLabel;
     }
 }
 

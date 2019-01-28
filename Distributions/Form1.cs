@@ -61,7 +61,7 @@ namespace Distributions
             var sorted_rates_probability = ReturnSortedList (GetUniqueRatesAndTheirCounters (GetSuccessRatesFromSequences (sequences)));
             CalculateProbabilityOfEachRateBasedOnSampleData (ref sorted_rates_probability, nrOfSequences);
 
-            // display
+            // display the data in Oxyplot
             #region Displaying it in the graph
 
             plotModel = new PlotModel () { Title = "Chart" };
@@ -103,6 +103,13 @@ namespace Distributions
             plotView.Model = plotModel;
 
             #endregion
+
+
+            // Display mean, variance, and standard deviation 
+            
+            meanLabel.Text = "Mean: " + CalculateMean (sequences);
+            varianceLabel.Text = "Variance: " + CalculateVariance (sequences);
+            standardDeviationLabel.Text = "Standart deviation: " + CalculateStandardDeviation (sequences);
         }
 
         private (int min, int max) GetMinAndMaxOccurrences(SortedList<double, double> list) {
