@@ -41,7 +41,11 @@
             this.exponentialButton = new System.Windows.Forms.Button();
             this.runsTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.plotView2 = new OxyPlot.WindowsForms.PlotView();
+            this.realIntervalTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.partBButton = new System.Windows.Forms.Button();
+            this.mTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // numberOfExperimentsTextBox
@@ -98,7 +102,7 @@
             this.goBernoulliButton.Name = "goBernoulliButton";
             this.goBernoulliButton.Size = new System.Drawing.Size(75, 23);
             this.goBernoulliButton.TabIndex = 6;
-            this.goBernoulliButton.Text = "Go!";
+            this.goBernoulliButton.Text = "Poisson";
             this.goBernoulliButton.UseVisualStyleBackColor = true;
             this.goBernoulliButton.Click += new System.EventHandler(this.goBernoulliButton_Click);
             // 
@@ -151,19 +155,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(118, 364);
+            this.label4.Location = new System.Drawing.Point(118, 556);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Interval";
+            this.label4.Text = "Poisson Interval";
             // 
             // exponentialButton
             // 
-            this.exponentialButton.Location = new System.Drawing.Point(12, 417);
+            this.exponentialButton.Location = new System.Drawing.Point(12, 430);
             this.exponentialButton.Name = "exponentialButton";
             this.exponentialButton.Size = new System.Drawing.Size(75, 23);
             this.exponentialButton.TabIndex = 13;
-            this.exponentialButton.Text = "Go 2!";
+            this.exponentialButton.Text = "Exponential";
             this.exponentialButton.UseVisualStyleBackColor = true;
             this.exponentialButton.Click += new System.EventHandler(this.exponentialButton_Click);
             // 
@@ -183,24 +187,58 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Runs";
             // 
-            // plotView2
+            // realIntervalTextBox
             // 
-            this.plotView2.Location = new System.Drawing.Point(849, 15);
-            this.plotView2.Name = "plotView2";
-            this.plotView2.PanCursor = System.Windows.Forms.Cursors.Hand;
-            this.plotView2.Size = new System.Drawing.Size(548, 423);
-            this.plotView2.TabIndex = 16;
-            this.plotView2.Text = "plotView1";
-            this.plotView2.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
-            this.plotView2.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.plotView2.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
+            this.realIntervalTextBox.Location = new System.Drawing.Point(12, 553);
+            this.realIntervalTextBox.Name = "realIntervalTextBox";
+            this.realIntervalTextBox.Size = new System.Drawing.Size(100, 20);
+            this.realIntervalTextBox.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(118, 364);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Interval";
+            // 
+            // partBButton
+            // 
+            this.partBButton.Location = new System.Drawing.Point(13, 584);
+            this.partBButton.Name = "partBButton";
+            this.partBButton.Size = new System.Drawing.Size(75, 23);
+            this.partBButton.TabIndex = 19;
+            this.partBButton.Text = "Part B";
+            this.partBButton.UseVisualStyleBackColor = true;
+            this.partBButton.Click += new System.EventHandler(this.partBButton_Click);
+            // 
+            // mTextBox
+            // 
+            this.mTextBox.Location = new System.Drawing.Point(12, 527);
+            this.mTextBox.Name = "mTextBox";
+            this.mTextBox.Size = new System.Drawing.Size(100, 20);
+            this.mTextBox.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(118, 530);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(15, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "m";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1434, 522);
-            this.Controls.Add(this.plotView2);
+            this.ClientSize = new System.Drawing.Size(821, 656);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.mTextBox);
+            this.Controls.Add(this.partBButton);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.realIntervalTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.runsTextBox);
             this.Controls.Add(this.exponentialButton);
@@ -242,7 +280,11 @@
         private System.Windows.Forms.Button exponentialButton;
         private System.Windows.Forms.TextBox runsTextBox;
         private System.Windows.Forms.Label label5;
-        private OxyPlot.WindowsForms.PlotView plotView2;
+        private System.Windows.Forms.TextBox realIntervalTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button partBButton;
+        private System.Windows.Forms.TextBox mTextBox;
+        private System.Windows.Forms.Label label7;
     }
 }
 

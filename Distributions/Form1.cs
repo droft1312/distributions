@@ -195,5 +195,33 @@ namespace Distributions
             varianceLabel.Text = "Variance: " + CalculateVariance (distances.ToArray ());
             standardDeviationLabel.Text = "Standart deviation: " + CalculateStandardDeviation (distances.ToArray ());
         }
+
+        private void partBButton_Click (object sender, EventArgs e) {
+            int lambda = int.Parse (lambdaTextBox.Text);
+            int interval = int.Parse (intervalTextBox.Text);
+            int fraction = int.Parse (realIntervalTextBox.Text);
+            int runs = int.Parse (runsTextBox.Text);
+            int m = int.Parse (mTextBox.Text);
+
+
+            double counter = 0;
+
+            for (int i = 0; i < (runs / fraction)*fraction; i++) {
+                int success = 0;
+
+                for (int j = 0; j < fraction; j++) {
+                    var random_number = random.Next (0, interval);
+                    if (random_number < lambda) success++;
+                }
+
+                if (success == m) counter++;
+            }
+
+            counter /= (runs / fraction) * fraction;
+
+            var xx = CalculatePoisson (((double)lambda/(double)interval)*fraction, m);
+
+            MessageBox.Show ("From experiments: " + counter.ToString() + " || " + "Poisson: " + xx.ToString());
+        }
     }
 }
