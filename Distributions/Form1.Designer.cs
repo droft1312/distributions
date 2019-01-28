@@ -41,6 +41,7 @@
             this.exponentialButton = new System.Windows.Forms.Button();
             this.runsTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.plotView2 = new OxyPlot.WindowsForms.PlotView();
             this.SuspendLayout();
             // 
             // numberOfExperimentsTextBox
@@ -142,7 +143,7 @@
             // 
             // intervalTextBox
             // 
-            this.intervalTextBox.Location = new System.Drawing.Point(13, 217);
+            this.intervalTextBox.Location = new System.Drawing.Point(12, 229);
             this.intervalTextBox.Name = "intervalTextBox";
             this.intervalTextBox.Size = new System.Drawing.Size(100, 20);
             this.intervalTextBox.TabIndex = 11;
@@ -150,7 +151,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(119, 220);
+            this.label4.Location = new System.Drawing.Point(118, 232);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 12;
@@ -158,7 +159,7 @@
             // 
             // exponentialButton
             // 
-            this.exponentialButton.Location = new System.Drawing.Point(13, 273);
+            this.exponentialButton.Location = new System.Drawing.Point(12, 285);
             this.exponentialButton.Name = "exponentialButton";
             this.exponentialButton.Size = new System.Drawing.Size(75, 23);
             this.exponentialButton.TabIndex = 13;
@@ -168,7 +169,7 @@
             // 
             // runsTextBox
             // 
-            this.runsTextBox.Location = new System.Drawing.Point(13, 244);
+            this.runsTextBox.Location = new System.Drawing.Point(12, 256);
             this.runsTextBox.Name = "runsTextBox";
             this.runsTextBox.Size = new System.Drawing.Size(100, 20);
             this.runsTextBox.TabIndex = 14;
@@ -176,17 +177,30 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(119, 247);
+            this.label5.Location = new System.Drawing.Point(118, 259);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Runs";
             // 
+            // plotView2
+            // 
+            this.plotView2.Location = new System.Drawing.Point(849, 15);
+            this.plotView2.Name = "plotView2";
+            this.plotView2.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.plotView2.Size = new System.Drawing.Size(548, 423);
+            this.plotView2.TabIndex = 16;
+            this.plotView2.Text = "plotView1";
+            this.plotView2.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.plotView2.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.plotView2.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1434, 522);
+            this.Controls.Add(this.plotView2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.runsTextBox);
             this.Controls.Add(this.exponentialButton);
@@ -228,6 +242,7 @@
         private System.Windows.Forms.Button exponentialButton;
         private System.Windows.Forms.TextBox runsTextBox;
         private System.Windows.Forms.Label label5;
+        private OxyPlot.WindowsForms.PlotView plotView2;
     }
 }
 

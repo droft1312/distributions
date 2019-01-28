@@ -188,6 +188,12 @@ namespace Distributions
             categoryAxis.ItemsSource = xs;
             plotModel.Axes.Add (categoryAxis);
             plotView.Model = plotModel;
+
+            // Display mean, variance, and standard deviation 
+
+            meanLabel.Text = "Mean: " + CalculateMean (distances.ToArray());
+            varianceLabel.Text = "Variance: " + CalculateVariance (distances.ToArray ());
+            standardDeviationLabel.Text = "Standart deviation: " + CalculateStandardDeviation (distances.ToArray ());
         }
     }
 }

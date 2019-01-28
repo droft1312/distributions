@@ -7,6 +7,33 @@ using System.Threading.Tasks;
 namespace Distributions
 {
     static class MyFunctions {
+
+        public static double CalculateStandardDeviation (int[] set) {
+            return Math.Sqrt (CalculateVariance (set));
+        }
+
+        public static double CalculateVariance (int[] set) {
+            var mean = CalculateMean (set);
+            List<double> deviation = new List<double> ();
+            for (int i = 0; i < set.Length; i++) {
+                deviation.Add (mean - set[i]);
+            }
+            double sum = 0;
+            for (int i = 0; i < deviation.Count; i++) {
+                sum += Math.Pow (deviation[i], 2);
+            }
+            sum /= set.Length;
+            return sum;
+        }
+
+        public static double CalculateMean(int[] set) {
+            double sum = 0;
+            for (int i = 0; i < set.Length; i++) {
+                sum += set[i];
+            }
+            sum /= set.Length;
+            return sum;
+        }
         
         public static double CalculateMean (Sequence[] sequences) {
             double sum = 0;
