@@ -198,30 +198,32 @@ namespace Distributions
 
         private void partBButton_Click (object sender, EventArgs e) {
             int lambda = int.Parse (lambdaTextBox.Text);
-            int interval = int.Parse (intervalTextBox.Text);
             int fraction = int.Parse (realIntervalTextBox.Text);
-            int runs = int.Parse (runsTextBox.Text);
             int m = int.Parse (mTextBox.Text);
 
+            var each_period = (double)1 / fraction;
+            Random random = new Random ();
 
-            double counter = 0;
+            int[] sample_data_from_experiment = new int[fraction];
 
-            for (int i = 0; i < (runs / fraction)*fraction; i++) {
-                int success = 0;
+            for (int i = 0; i < fraction; i++) {
 
-                for (int j = 0; j < fraction; j++) {
-                    var random_number = random.Next (0, interval);
-                    if (random_number < lambda) success++;
+                int counter = 0;
+                double sum = 0;
+                
+                while (sum < each_period && m != 0) {
+                    var exponentiallyDistributedRandomNumber = ExponentialRandomNumber (lambda, random.NextDouble ());
+                    sum += exponentiallyDistributedRandomNumber * each_period;
+                    counter++;
+                    m--;
                 }
 
-                if (success == m) counter++;
+                sample_data_from_experiment[i] = counter;
             }
 
-            counter /= (runs / fraction) * fraction;
-
-            var xx = CalculatePoisson (((double)lambda/(double)interval)*fraction, m);
-
-            MessageBox.Show ("From experiments: " + counter.ToString() + " || " + "Poisson: " + xx.ToString());
+            meanLabel.Text = "Mean: " + CalculateMean (sample_data_from_experiment);
+            varianceLabel.Text = "Variance: " + CalculateVariance (sample_data_from_experiment);
+            standardDeviationLabel.Text = "Standart deviation: " + CalculateStandardDeviation (sample_data_from_experiment);
         }
     }
 }

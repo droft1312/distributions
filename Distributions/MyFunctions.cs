@@ -97,5 +97,10 @@ namespace Distributions
             }
             return list;
         }
+
+        public static double ExponentialRandomNumber(double lambda, double ranNum) {
+            var randomNumber = Math.Log (1 - ranNum) / (-lambda);
+            return randomNumber;
+        }
     }
 }
